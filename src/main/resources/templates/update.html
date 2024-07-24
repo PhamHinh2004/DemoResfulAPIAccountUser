@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+    <div class="container px-0">
+        <h2>User List</h2>
+        <!-- <ul>
+            <li th:each="user : ${users}">
+                <span th:text="${user.username}"></span>
+                <form th:action="@{'/update/' + ${user.id}}" method="post" th:object="${updatedUser}">
+                    <input type="hidden" name="_method" value="put" />
+                    <div class="line-input">
+                        <label for="username">User name:</label>
+                        <input type="text" id="username" name="username" th:field="*{username}">
+                    </div>
+                    <div class="line-input">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" th:field="*{password}">
+                    </div>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+            </li>
+        </ul> -->
+        <div>
+            <p th:text="${user.username}"></p>
+            <p th:text="${user.password}"></p>
+            <form th:action="@{'/update/' + ${user.id}}" method="post" th:object="${updatedUser}">
+                <input type="hidden" name="_method" value="put" />
+                <div class="line-input">
+                    <label for="username">User name:</label>
+                    <input type="text" id="username" name="username" th:field="*{username}">
+                </div>
+                <div class="line-input">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" th:field="*{password}">
+                </div>
+                <button type="submit" class="btn btn-success">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+
+<body>
+    <div class="container px-0">
+        <h2>User List</h2>
+        <ul>
+            <li th:each="user : ${users}">
+                <span th:text="${user.username}"></span>
+                <form th:action="@{'/delete/' + ${user.id}}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

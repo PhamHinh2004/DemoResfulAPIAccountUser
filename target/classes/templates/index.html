@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <div class="container px-0">
+        <form th:action="@{/}" method="post" th:object="${user}" id="form_login">
+            <div class="line-input">
+                <label for="username">User name:</label>
+                <input type="text" id="username" name="username" th:field="*{username}" required>
+            </div>
+            <div class="line-input">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" th:field="*{password}" required>
+            </div>
+            <!-- Các trường dữ liệu khác có thể thêm vào đây -->
+    
+            <button type="submit" class="btn btn-success">Add user</button>
+        </form>
+    </div>
+    
+</body>
+<script th:src="@{/js/index.js}"></script>
+</html>

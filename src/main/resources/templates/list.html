@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+
+<body>
+    <div class="container px-0">
+        <!-- <ul>
+            <li th:each="user : ${users}">
+                User : <span th:text="${user.username}"></span>
+            </li>
+        </ul>
+        <a th:href="@{/}">
+            <button class="btn btn-success">
+                add user
+            </button>
+        </a>
+        <a th:href="@{/delete}">
+            <button class="btn btn-danger">
+                Delete User
+            </button>
+        </a>
+        <a th:href="@{/update}">
+            <button class="btn btn-primary">
+                Update User
+            </button>
+        </a> -->
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Tools</th>
+                </tr>
+            </thead>
+            <tbody th:each="user : ${users}">
+                <tr>
+                    <td  th:text="${user.id}"></td> 
+                    <td  th:text="${user.username}"></td>
+                    <td  th:text="${user.password}"></td>
+                    <td>
+                        <!-- <a th:href="@{/delete/{id}(id=${user.id})}">
+                            <button class="btn btn-danger">
+                                Delete User
+                            </button>
+                        </a> -->
+                        <form th:action="@{'/delete/' + ${user.id}}" method="post" style="display:inline;">
+                            <button class="btn btn-danger">
+                                Delete User
+                            </button>
+                        </form>
+                        <!-- <a th:href="@{/update}">
+                            <button class="btn btn-primary">
+                                Update User
+                            </button>
+                        </a> -->
+
+                        <form th:action="@{'/update/' + ${user.id}}" method="get" style="display:inline;">
+                             <button class="btn btn-primary">
+                                Update User
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        <a th:href="@{/}" >
+                            <button class="btn btn-success">
+                                add user
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>
